@@ -643,81 +643,81 @@ export default function LandingPage({ onLaunchApp }) {
           </div>
 
           {/* Hero Overlapping Card Stack / "Deck of Cards" Layout */}
-          <div className="relative max-w-5xl mx-auto pt-8 pb-4">
+          <div className="relative max-w-5xl mx-auto pt-4 pb-2 sm:pt-8 sm:pb-4 overflow-hidden px-1 sm:px-4">
             {/* Overlapping Deck Container */}
-            <div className="flex items-center justify-center -space-x-10 sm:-space-x-12 px-2 sm:px-4 relative z-10 max-w-full overflow-visible">
+            <div className="flex items-center justify-center -space-x-6 xs:-space-x-8 sm:-space-x-12 relative z-10 max-w-full">
               {/* Left Card (Senior Aid) - Tilted Left */}
-              <div className="w-48 xs:w-56 sm:w-80 rounded-2xl sm:rounded-3xl bg-white p-2 sm:p-3 shadow-xl border border-[#D5E5DE] transform -rotate-4 hover:rotate-0 hover:scale-105 hover:z-30 transition-all duration-300 shrink-0 z-10">
-                <div className="relative w-full h-32 xs:h-36 sm:h-52 rounded-xl sm:rounded-2xl overflow-hidden bg-slate-100">
+              <div className="w-[33vw] max-w-[160px] sm:max-w-none sm:w-80 rounded-xl xs:rounded-2xl sm:rounded-3xl bg-white p-1.5 xs:p-2 sm:p-3 shadow-xl border border-[#D5E5DE] transform -rotate-3 sm:-rotate-4 hover:rotate-0 hover:scale-105 hover:z-30 transition-all duration-300 shrink-0 z-10">
+                <div className="relative w-full h-24 xs:h-32 sm:h-52 rounded-lg xs:rounded-xl sm:rounded-2xl overflow-hidden bg-slate-100">
                   <img
                     src="/volunteer_senior.jpg"
                     alt="SK Volunteer handing relief to senior citizen"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute top-2 left-2 sm:top-3 sm:left-3 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-black/75 backdrop-blur-sm text-white text-[9px] sm:text-[10px] font-bold">
+                  <div className="absolute top-1 left-1 sm:top-3 sm:left-3 px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded bg-black/75 backdrop-blur-sm text-white text-[8px] sm:text-[10px] font-bold truncate max-w-[90%]">
                     {t.hero.photoTag1}
                   </div>
-                  <div className="absolute bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-3 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-lg bg-emerald-950/80 backdrop-blur-md text-emerald-300 text-[9px] sm:text-[10px] font-mono flex items-center justify-between border border-emerald-700/50">
-                    <span className="truncate">GEOHASH: wd77c8e</span>
-                    <span className="font-bold text-amber-300 hidden xs:inline">Verified</span>
+                  <div className="absolute bottom-1 left-1 right-1 sm:bottom-3 sm:left-3 sm:right-3 px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-md sm:rounded-lg bg-emerald-950/80 backdrop-blur-md text-emerald-300 text-[8px] sm:text-[10px] font-mono flex items-center justify-between border border-emerald-700/50">
+                    <span className="truncate text-[7px] sm:text-[10px]">wd77c8e</span>
+                    <span className="font-bold text-amber-300 hidden sm:inline">Verified</span>
                   </div>
                 </div>
-                <div className="p-2 sm:p-3 text-left">
-                  <div className="text-[9px] sm:text-[10px] font-bold text-emerald-700 uppercase tracking-wider">PUROK 4 ILAYA</div>
-                  <h4 className="font-bold text-xs sm:text-sm text-[#063B2C] mt-0.5 truncate">Senior & Vulnerable Aid</h4>
+                <div className="p-1 xs:p-2 sm:p-3 text-left">
+                  <div className="text-[8px] sm:text-[10px] font-bold text-emerald-700 uppercase tracking-wider truncate">PUROK 4 ILAYA</div>
+                  <h4 className="font-bold text-[10px] sm:text-sm text-[#063B2C] mt-0.5 truncate">Senior & Vulnerable Aid</h4>
                 </div>
               </div>
 
               {/* Center Card (Active Bayanihan) - Elevated Lifted */}
-              <div className="w-52 xs:w-64 sm:w-90 rounded-2xl sm:rounded-3xl bg-white p-2 sm:p-3 shadow-2xl border-2 border-emerald-400 transform -translate-y-3 sm:-translate-y-6 hover:-translate-y-8 hover:scale-105 transition-all duration-300 shrink-0 z-20 shadow-emerald-600/15">
-                <div className="relative w-full h-36 xs:h-40 sm:h-56 rounded-xl sm:rounded-2xl overflow-hidden bg-slate-100">
+              <div className="w-[38vw] max-w-[190px] sm:max-w-none sm:w-90 rounded-xl xs:rounded-2xl sm:rounded-3xl bg-white p-1.5 xs:p-2 sm:p-3 shadow-2xl border-2 border-emerald-400 transform -translate-y-2 sm:-translate-y-6 hover:-translate-y-8 hover:scale-105 transition-all duration-300 shrink-0 z-20 shadow-emerald-600/15">
+                <div className="relative w-full h-28 xs:h-36 sm:h-56 rounded-lg xs:rounded-xl sm:rounded-2xl overflow-hidden bg-slate-100">
                   <img
                     src="/hero_community.jpg"
                     alt="Philippine Barangay Disaster Relief Distribution"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute top-2 left-2 sm:top-3 sm:left-3 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-emerald-600 text-white text-[9px] sm:text-[10px] font-black shadow-md flex items-center gap-1">
-                    <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-                    <span>{t.hero.photoTag2}</span>
+                  <div className="absolute top-1 left-1 sm:top-3 sm:left-3 px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded bg-emerald-600 text-white text-[8px] sm:text-[10px] font-black shadow-md flex items-center gap-1">
+                    <CheckCircle2 className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 shrink-0" />
+                    <span className="truncate">{t.hero.photoTag2}</span>
                   </div>
-                  <div className="absolute bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-3 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-lg bg-black/80 backdrop-blur-md text-white text-[9px] sm:text-[10px] font-medium text-center truncate">
+                  <div className="absolute bottom-1 left-1 right-1 sm:bottom-3 sm:left-3 sm:right-3 px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-md sm:rounded-lg bg-black/80 backdrop-blur-md text-white text-[8px] sm:text-[10px] font-medium text-center truncate">
                     {t.hero.photoSubCenter}
                   </div>
                 </div>
-                <div className="p-2 sm:p-3 text-left">
-                  <div className="text-[9px] sm:text-[10px] font-bold text-emerald-700 uppercase tracking-wider">PUROK 3 MABINI</div>
-                  <h4 className="font-bold text-xs sm:text-sm text-[#063B2C] mt-0.5 truncate">Evacuation Gym Relief Handshake</h4>
+                <div className="p-1 xs:p-2 sm:p-3 text-left">
+                  <div className="text-[8px] sm:text-[10px] font-bold text-emerald-700 uppercase tracking-wider truncate">PUROK 3 MABINI</div>
+                  <h4 className="font-bold text-[10px] sm:text-sm text-[#063B2C] mt-0.5 truncate">Evacuation Gym Relief Handshake</h4>
                 </div>
               </div>
 
               {/* Right Card (COA Ready Supplies) - Tilted Right */}
-              <div className="w-48 xs:w-56 sm:w-80 rounded-2xl sm:rounded-3xl bg-white p-2 sm:p-3 shadow-xl border border-[#D5E5DE] transform rotate-4 hover:rotate-0 hover:scale-105 hover:z-30 transition-all duration-300 shrink-0 z-10">
-                <div className="relative w-full h-32 xs:h-36 sm:h-52 rounded-xl sm:rounded-2xl overflow-hidden bg-slate-100">
+              <div className="w-[33vw] max-w-[160px] sm:max-w-none sm:w-80 rounded-xl xs:rounded-2xl sm:rounded-3xl bg-white p-1.5 xs:p-2 sm:p-3 shadow-xl border border-[#D5E5DE] transform rotate-3 sm:rotate-4 hover:rotate-0 hover:scale-105 hover:z-30 transition-all duration-300 shrink-0 z-10">
+                <div className="relative w-full h-24 xs:h-32 sm:h-52 rounded-lg xs:rounded-xl sm:rounded-2xl overflow-hidden bg-slate-100">
                   <img
                     src="/relief_packs.jpg"
                     alt="Organized Emergency Disaster Relief Packs"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute top-2 right-2 sm:top-3 sm:right-3 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-black/75 backdrop-blur-sm text-white text-[9px] sm:text-[10px] font-bold">
+                  <div className="absolute top-1 right-1 sm:top-3 sm:right-3 px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded bg-black/75 backdrop-blur-sm text-white text-[8px] sm:text-[10px] font-bold truncate max-w-[90%]">
                     {t.hero.photoTag3}
                   </div>
-                  <div className="absolute bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-3 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-lg bg-emerald-950/80 backdrop-blur-md text-emerald-300 text-[9px] sm:text-[10px] font-mono flex items-center justify-between border border-emerald-700/50">
-                    <span className="truncate">COA ANNEX A/B</span>
-                    <span className="font-bold text-emerald-400 hidden xs:inline">Tracked</span>
+                  <div className="absolute bottom-1 left-1 right-1 sm:bottom-3 sm:left-3 sm:right-3 px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-md sm:rounded-lg bg-emerald-950/80 backdrop-blur-md text-emerald-300 text-[8px] sm:text-[10px] font-mono flex items-center justify-between border border-emerald-700/50">
+                    <span className="truncate text-[7px] sm:text-[10px]">COA ANNEX A/B</span>
+                    <span className="font-bold text-emerald-400 hidden sm:inline">Tracked</span>
                   </div>
                 </div>
-                <div className="p-2 sm:p-3 text-left">
-                  <div className="text-[9px] sm:text-[10px] font-bold text-emerald-700 uppercase tracking-wider">PUROK 1 RIVERSIDE</div>
-                  <h4 className="font-bold text-sm text-[#063B2C] mt-0.5 truncate">Emergency Relief Packs</h4>
+                <div className="p-1 xs:p-2 sm:p-3 text-left">
+                  <div className="text-[8px] sm:text-[10px] font-bold text-emerald-700 uppercase tracking-wider truncate">PUROK 1 RIVERSIDE</div>
+                  <h4 className="font-bold text-[10px] sm:text-sm text-[#063B2C] mt-0.5 truncate">Emergency Relief Packs</h4>
                 </div>
               </div>
             </div>
 
             {/* Floating Caption Banner / Trust Pill Neatly Underneath Overlapping Stack */}
-            <div className="mt-8 relative z-30 flex justify-center">
-              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white shadow-xl border border-[#D5E5DE] text-xs sm:text-sm font-bold text-[#1F4135] backdrop-blur-md">
-                <Leaf className="w-4 h-4 text-emerald-600 fill-current animate-pulse" />
-                <span>{t.hero.trustPill}</span>
+            <div className="mt-6 sm:mt-8 relative z-30 flex justify-center px-3">
+              <div className="inline-flex items-center justify-center gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-2xl sm:rounded-full bg-white shadow-xl border border-[#D5E5DE] text-xs sm:text-sm font-bold text-[#1F4135] backdrop-blur-md text-center max-w-full">
+                <Leaf className="w-4 h-4 text-emerald-600 fill-current animate-pulse shrink-0" />
+                <span className="leading-snug">{t.hero.trustPill}</span>
               </div>
             </div>
           </div>
