@@ -32,19 +32,20 @@ export default function TopBar({ activeRole, onRoleChange, isOffline, onToggleOf
 
   return (
     <header className="sticky top-0 z-40 no-print" style={{
-      background: 'rgba(17, 25, 39, 0.95)',
+      background: 'rgba(244, 249, 246, 0.95)',
       backdropFilter: 'blur(12px)',
-      borderBottom: '1px solid var(--color-border)',
+      borderBottom: '1px solid #D5E5DE',
     }}>
       {/* Offline banner */}
       {isOffline && (
-        <div className="flex items-center justify-center gap-2 py-1.5 text-xs font-semibold" style={{
-          background: 'linear-gradient(90deg, var(--color-amber-900), var(--color-red-900), var(--color-amber-900))',
-          color: 'var(--color-amber-400)',
+        <div className="flex items-center justify-center gap-2 py-1.5 text-xs font-bold" style={{
+          background: '#FEF3C7',
+          color: '#92400E',
+          borderBottom: '1px solid #FCD34D'
         }}>
-          <div className="w-2 h-2 rounded-full" style={{ background: 'var(--color-amber-500)', animation: 'pulse-amber 1.5s infinite' }} />
+          <div className="w-2 h-2 rounded-full bg-amber-600 animate-ping" />
           DISASTER MODE — OFFLINE OPERATIONS ACTIVE
-          <div className="w-2 h-2 rounded-full" style={{ background: 'var(--color-amber-500)', animation: 'pulse-amber 1.5s infinite' }} />
+          <div className="w-2 h-2 rounded-full bg-amber-600 animate-ping" />
         </div>
       )}
 
@@ -55,24 +56,23 @@ export default function TopBar({ activeRole, onRoleChange, isOffline, onToggleOf
           className="flex items-center gap-2.5 cursor-pointer group transition-opacity hover:opacity-90"
           title="Return to Landing Page"
         >
-          <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{
-            background: 'linear-gradient(135deg, var(--color-emerald-600), var(--color-emerald-700))',
-            boxShadow: '0 0 12px rgba(16, 185, 129, 0.3)',
+          <div className="w-9 h-9 rounded-xl flex items-center justify-center shadow-md shadow-emerald-700/20" style={{
+            background: 'linear-gradient(135deg, var(--color-emerald-500), var(--color-emerald-700))',
           }}>
             <Shield size={20} color="white" />
           </div>
           <div>
             <div className="flex items-center gap-1.5">
-              <h1 className="text-base font-extrabold tracking-tight leading-tight">
+              <h1 className="text-base font-black tracking-tight leading-tight text-[#063B2C]">
                 Komuni<span style={{ color: 'var(--color-emerald-400)' }}>Core</span>
               </h1>
               {onBackToHome && (
-                <span className="hidden sm:inline-block text-[10px] px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700 font-medium group-hover:text-emerald-400 group-hover:border-emerald-500/40 transition-colors">
+                <span className="hidden sm:inline-block text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300 font-bold group-hover:bg-emerald-600 group-hover:text-white transition-colors">
                   ← Landing Page
                 </span>
               )}
             </div>
-            <p className="text-[10px] leading-tight tracking-wide" style={{ color: 'var(--color-muted-dim)' }}>
+            <p className="text-[10px] font-bold leading-tight tracking-wide text-[#4E7164]">
               DISASTER RELIEF OS
             </p>
           </div>
