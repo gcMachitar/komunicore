@@ -82,7 +82,7 @@ export default function TopBar({ activeRole, onRoleChange, isOffline, onToggleOf
         <div className="relative" ref={dropdownRef}>
           <button
             onClick={() => setDropdownOpen(!dropdownOpen)}
-            className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium cursor-pointer transition-all"
+            className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-2 rounded-lg text-xs sm:text-sm font-bold cursor-pointer transition-all"
             style={{
               background: 'var(--color-surface-elevated)',
               border: '1px solid var(--color-border)',
@@ -93,6 +93,7 @@ export default function TopBar({ activeRole, onRoleChange, isOffline, onToggleOf
           >
             <RoleIcon size={16} style={{ color: currentRole.color }} />
             <span className="hidden md:inline">{currentRole.label}</span>
+            <span className="md:hidden text-[11px] font-bold tracking-tight">{currentRole.id === 'admin' ? 'Admin' : currentRole.id === 'worker' ? 'SK Tech' : currentRole.id === 'resident' ? 'Resident' : 'Donor'}</span>
             <ChevronDown size={14} style={{
               color: 'var(--color-muted)',
               transform: dropdownOpen ? 'rotate(180deg)' : 'rotate(0)',

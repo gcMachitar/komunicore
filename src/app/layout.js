@@ -13,10 +13,17 @@ export const metadata = {
   keywords: "barangay, disaster relief, Philippines, COA, DRRM, evacuation, offline-first",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} h-full`}>
-      <body className="min-h-screen flex flex-col" style={{ fontFamily: 'var(--font-inter), system-ui, -apple-system, sans-serif' }}>
+      <body className="min-h-screen flex flex-col antialiased selection:bg-emerald-500 selection:text-white" style={{ fontFamily: 'var(--font-inter), system-ui, -apple-system, sans-serif' }}>
         {children}
       </body>
     </html>

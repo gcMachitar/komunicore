@@ -6,7 +6,7 @@ import {
   Lock, Users, Heart, ArrowRight, Activity, Database, Smartphone, 
   Layers, RefreshCw, BarChart3, Scan, ExternalLink, ChevronRight,
   Sparkles, Check, Clock, Radio, Award, Sun, Eye, Leaf, Globe,
-  Terminal, ShieldCheck, Cpu, ArrowUpRight, CheckCircle, Play
+  Terminal, ShieldCheck, Cpu, ArrowUpRight, CheckCircle, Play, Menu, X
 } from 'lucide-react';
 
 const CONTENT = {
@@ -367,6 +367,7 @@ export default function LandingPage({ onLaunchApp }) {
   const [pinInput, setPinInput] = useState('');
   const [pinStatus, setPinStatus] = useState('idle'); // 'idle' | 'verifying' | 'verified' | 'failed'
   const [simulatedResident, setSimulatedResident] = useState(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const t = CONTENT[lang];
 
@@ -477,7 +478,7 @@ export default function LandingPage({ onLaunchApp }) {
             <div className="flex items-center p-1 rounded-full bg-emerald-100/70 border border-emerald-300 shadow-inner">
               <button
                 onClick={() => setLang('tl')}
-                className={`px-2.5 py-1 rounded-full text-[11px] font-black transition-all cursor-pointer flex items-center gap-1 ${
+                className={`px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-black transition-all cursor-pointer flex items-center gap-1 ${
                   lang === 'tl'
                     ? 'bg-emerald-700 text-white shadow-sm scale-105'
                     : 'text-emerald-900 hover:text-emerald-950'
@@ -488,7 +489,7 @@ export default function LandingPage({ onLaunchApp }) {
               </button>
               <button
                 onClick={() => setLang('en')}
-                className={`px-2.5 py-1 rounded-full text-[11px] font-black transition-all cursor-pointer flex items-center gap-1 ${
+                className={`px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-black transition-all cursor-pointer flex items-center gap-1 ${
                   lang === 'en'
                     ? 'bg-emerald-700 text-white shadow-sm scale-105'
                     : 'text-emerald-900 hover:text-emerald-950'
@@ -499,16 +500,90 @@ export default function LandingPage({ onLaunchApp }) {
               </button>
             </div>
 
-            {/* Launch App Button */}
+            {/* Launch App Button (Hidden on smallest screens, available in mobile menu) */}
             <button
               onClick={() => onLaunchApp('admin')}
-              className="px-4 sm:px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs sm:text-sm flex items-center gap-2 shadow-lg shadow-emerald-700/25 transition-all transform hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
+              className="hidden sm:flex px-4 sm:px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs sm:text-sm items-center gap-2 shadow-lg shadow-emerald-700/25 transition-all transform hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
+            >
+              <Zap className="w-4 h-4 fill-current text-white" />
+              <span>{t.nav.launch}</span>
+            </button>
+
+            {/* Mobile Hamburger Toggle Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 rounded-xl bg-emerald-100/80 text-[#063B2C] border border-emerald-300 hover:bg-emerald-200 transition-colors"
+              aria-label="Toggle Navigation Menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+        </div>
+
+        {/* Collapsible Mobile Navigation Drawer */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-[#F4F9F6] border-b border-[#E2ECE7] px-4 pt-3 pb-6 space-y-3 animate-fadeIn shadow-xl">
+            <nav className="flex flex-col gap-2.5 text-sm font-bold text-[#3B5B4F]">
+              <a
+                href="#hero"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-xl hover:bg-emerald-100/80 hover:text-emerald-800 transition-colors"
+              >
+                {t.nav.crisis}
+              </a>
+              <a
+                href="#handshake-demo"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-xl hover:bg-emerald-100/80 hover:text-emerald-800 transition-colors"
+              >
+                PIN Handshake Demo
+              </a>
+              <a
+                href="#protection"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-xl hover:bg-emerald-100/80 hover:text-emerald-800 transition-colors"
+              >
+                {t.nav.trust}
+              </a>
+              <a
+                href="#how-it-works"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-xl hover:bg-emerald-100/80 hover:text-emerald-800 transition-colors"
+              >
+                {t.nav.howItWorks}
+              </a>
+              <a
+                href="#comparison"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-xl hover:bg-emerald-100/80 hover:text-emerald-800 transition-colors"
+              >
+                Vs Legacy
+              </a>
+              <a
+                href="#causes"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-xl hover:bg-emerald-100/80 hover:text-emerald-800 transition-colors"
+              >
+                {t.nav.causes}
+              </a>
+              <a
+                href="#roles"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-xl hover:bg-emerald-100/80 hover:text-emerald-800 transition-colors"
+              >
+                {t.nav.roles}
+              </a>
+            </nav>
+
+            <button
+              onClick={() => { setMobileMenuOpen(false); onLaunchApp('admin'); }}
+              className="w-full mt-2 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-700/20 transition-all cursor-pointer"
             >
               <Zap className="w-4 h-4 fill-current text-white" />
               <span>{t.nav.launch}</span>
             </button>
           </div>
-        </div>
+        )}
       </header>
 
       {/* Hero Section: Bright Fresh Mint Backdrop & Rotating Radar Sweep Animation */}
@@ -570,69 +645,69 @@ export default function LandingPage({ onLaunchApp }) {
           {/* Hero Overlapping Card Stack / "Deck of Cards" Layout */}
           <div className="relative max-w-5xl mx-auto pt-8 pb-4">
             {/* Overlapping Deck Container */}
-            <div className="flex items-center justify-center -space-x-8 sm:-space-x-12 px-4 relative z-10">
+            <div className="flex items-center justify-center -space-x-10 sm:-space-x-12 px-2 sm:px-4 relative z-10 max-w-full overflow-visible">
               {/* Left Card (Senior Aid) - Tilted Left */}
-              <div className="w-64 sm:w-80 rounded-3xl bg-white p-3 shadow-xl border border-[#D5E5DE] transform -rotate-4 hover:rotate-0 hover:scale-105 hover:z-30 transition-all duration-300 shrink-0 z-10">
-                <div className="relative w-full h-44 sm:h-52 rounded-2xl overflow-hidden bg-slate-100">
+              <div className="w-48 xs:w-56 sm:w-80 rounded-2xl sm:rounded-3xl bg-white p-2 sm:p-3 shadow-xl border border-[#D5E5DE] transform -rotate-4 hover:rotate-0 hover:scale-105 hover:z-30 transition-all duration-300 shrink-0 z-10">
+                <div className="relative w-full h-32 xs:h-36 sm:h-52 rounded-xl sm:rounded-2xl overflow-hidden bg-slate-100">
                   <img
                     src="/volunteer_senior.jpg"
                     alt="SK Volunteer handing relief to senior citizen"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/75 backdrop-blur-sm text-white text-[10px] font-bold">
+                  <div className="absolute top-2 left-2 sm:top-3 sm:left-3 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-black/75 backdrop-blur-sm text-white text-[9px] sm:text-[10px] font-bold">
                     {t.hero.photoTag1}
                   </div>
-                  <div className="absolute bottom-3 left-3 right-3 px-2.5 py-1 rounded-lg bg-emerald-950/80 backdrop-blur-md text-emerald-300 text-[10px] font-mono flex items-center justify-between border border-emerald-700/50">
-                    <span>GEOHASH: wd77c8e</span>
-                    <span className="font-bold text-amber-300">Verified</span>
+                  <div className="absolute bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-3 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-lg bg-emerald-950/80 backdrop-blur-md text-emerald-300 text-[9px] sm:text-[10px] font-mono flex items-center justify-between border border-emerald-700/50">
+                    <span className="truncate">GEOHASH: wd77c8e</span>
+                    <span className="font-bold text-amber-300 hidden xs:inline">Verified</span>
                   </div>
                 </div>
-                <div className="p-3 text-left">
-                  <div className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider">PUROK 4 ILAYA</div>
-                  <h4 className="font-bold text-sm text-[#063B2C] mt-0.5 truncate">Senior & Vulnerable Aid</h4>
+                <div className="p-2 sm:p-3 text-left">
+                  <div className="text-[9px] sm:text-[10px] font-bold text-emerald-700 uppercase tracking-wider">PUROK 4 ILAYA</div>
+                  <h4 className="font-bold text-xs sm:text-sm text-[#063B2C] mt-0.5 truncate">Senior & Vulnerable Aid</h4>
                 </div>
               </div>
 
               {/* Center Card (Active Bayanihan) - Elevated Lifted */}
-              <div className="w-72 sm:w-90 rounded-3xl bg-white p-3 shadow-2xl border-2 border-emerald-400 transform -translate-y-4 sm:-translate-y-6 hover:-translate-y-8 hover:scale-105 transition-all duration-300 shrink-0 z-20 shadow-emerald-600/15">
-                <div className="relative w-full h-48 sm:h-56 rounded-2xl overflow-hidden bg-slate-100">
+              <div className="w-52 xs:w-64 sm:w-90 rounded-2xl sm:rounded-3xl bg-white p-2 sm:p-3 shadow-2xl border-2 border-emerald-400 transform -translate-y-3 sm:-translate-y-6 hover:-translate-y-8 hover:scale-105 transition-all duration-300 shrink-0 z-20 shadow-emerald-600/15">
+                <div className="relative w-full h-36 xs:h-40 sm:h-56 rounded-xl sm:rounded-2xl overflow-hidden bg-slate-100">
                   <img
                     src="/hero_community.jpg"
                     alt="Philippine Barangay Disaster Relief Distribution"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-emerald-600 text-white text-[10px] font-black shadow-md flex items-center gap-1">
-                    <CheckCircle2 className="w-3.5 h-3.5" />
+                  <div className="absolute top-2 left-2 sm:top-3 sm:left-3 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-emerald-600 text-white text-[9px] sm:text-[10px] font-black shadow-md flex items-center gap-1">
+                    <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                     <span>{t.hero.photoTag2}</span>
                   </div>
-                  <div className="absolute bottom-3 left-3 right-3 px-2.5 py-1 rounded-lg bg-black/80 backdrop-blur-md text-white text-[10px] font-medium text-center">
+                  <div className="absolute bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-3 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-lg bg-black/80 backdrop-blur-md text-white text-[9px] sm:text-[10px] font-medium text-center truncate">
                     {t.hero.photoSubCenter}
                   </div>
                 </div>
-                <div className="p-3 text-left">
-                  <div className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider">PUROK 3 MABINI</div>
-                  <h4 className="font-bold text-sm text-[#063B2C] mt-0.5 truncate">Evacuation Gym Relief Handshake</h4>
+                <div className="p-2 sm:p-3 text-left">
+                  <div className="text-[9px] sm:text-[10px] font-bold text-emerald-700 uppercase tracking-wider">PUROK 3 MABINI</div>
+                  <h4 className="font-bold text-xs sm:text-sm text-[#063B2C] mt-0.5 truncate">Evacuation Gym Relief Handshake</h4>
                 </div>
               </div>
 
               {/* Right Card (COA Ready Supplies) - Tilted Right */}
-              <div className="w-64 sm:w-80 rounded-3xl bg-white p-3 shadow-xl border border-[#D5E5DE] transform rotate-4 hover:rotate-0 hover:scale-105 hover:z-30 transition-all duration-300 shrink-0 z-10">
-                <div className="relative w-full h-44 sm:h-52 rounded-2xl overflow-hidden bg-slate-100">
+              <div className="w-48 xs:w-56 sm:w-80 rounded-2xl sm:rounded-3xl bg-white p-2 sm:p-3 shadow-xl border border-[#D5E5DE] transform rotate-4 hover:rotate-0 hover:scale-105 hover:z-30 transition-all duration-300 shrink-0 z-10">
+                <div className="relative w-full h-32 xs:h-36 sm:h-52 rounded-xl sm:rounded-2xl overflow-hidden bg-slate-100">
                   <img
                     src="/relief_packs.jpg"
                     alt="Organized Emergency Disaster Relief Packs"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-black/75 backdrop-blur-sm text-white text-[10px] font-bold">
+                  <div className="absolute top-2 right-2 sm:top-3 sm:right-3 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-black/75 backdrop-blur-sm text-white text-[9px] sm:text-[10px] font-bold">
                     {t.hero.photoTag3}
                   </div>
-                  <div className="absolute bottom-3 left-3 right-3 px-2.5 py-1 rounded-lg bg-emerald-950/80 backdrop-blur-md text-emerald-300 text-[10px] font-mono flex items-center justify-between border border-emerald-700/50">
-                    <span>COA ANNEX A/B</span>
-                    <span className="font-bold text-emerald-400">100% Tracked</span>
+                  <div className="absolute bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-3 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-lg bg-emerald-950/80 backdrop-blur-md text-emerald-300 text-[9px] sm:text-[10px] font-mono flex items-center justify-between border border-emerald-700/50">
+                    <span className="truncate">COA ANNEX A/B</span>
+                    <span className="font-bold text-emerald-400 hidden xs:inline">Tracked</span>
                   </div>
                 </div>
-                <div className="p-3 text-left">
-                  <div className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider">PUROK 1 RIVERSIDE</div>
+                <div className="p-2 sm:p-3 text-left">
+                  <div className="text-[9px] sm:text-[10px] font-bold text-emerald-700 uppercase tracking-wider">PUROK 1 RIVERSIDE</div>
                   <h4 className="font-bold text-sm text-[#063B2C] mt-0.5 truncate">Emergency Relief Packs</h4>
                 </div>
               </div>
