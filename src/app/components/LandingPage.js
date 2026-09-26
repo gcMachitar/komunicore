@@ -1058,8 +1058,13 @@ export default function LandingPage({ onLaunchApp }) {
 
       {/* Section 2: Paano Gumagana (How it Works) - 4 Steps with Animated Connector Beam */}
       <section id="how-it-works" className="py-20 bg-[#EFF6F2] border-t border-[#E2ECE7] relative overflow-hidden">
+        {/* IMAGE BACKGROUND */}
+        <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+          <img src="/1.jpg" alt="Background 1" className="absolute inset-0 w-full h-full object-cover opacity-100" />
+          <div className="absolute inset-0 bg-[#EFF6F2]/50 backdrop-blur-[2px]"></div>
+        </div>
         {/* ANIMATED BACKGROUND EFFECT: Glowing Pulse Light Beam across steps */}
-        <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-emerald-300 pointer-events-none hidden lg:block opacity-60">
+        <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-emerald-300 pointer-events-none hidden lg:block opacity-60 z-0">
           <div className="w-1/3 h-full bg-gradient-to-r from-transparent via-emerald-600 to-transparent animate-scanline" />
         </div>
 
@@ -1185,6 +1190,11 @@ export default function LandingPage({ onLaunchApp }) {
 
       {/* Section 3: Mga Aktibong Relief Operations sa Purok: Gradient Flow Background */}
       <section id="causes" className="py-20 bg-gradient-to-br from-[#EFF6F2] via-[#E2F0E8] to-[#F4F9F6] animate-gradient-flow border-t border-[#E2ECE7] relative overflow-hidden">
+        {/* IMAGE BACKGROUND */}
+        <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+          <img src="/2.jpg" alt="Background 2" className="absolute inset-0 w-full h-full object-cover opacity-100" />
+          <div className="absolute inset-0 bg-white/50 backdrop-blur-[2px]"></div>
+        </div>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
             <div>
