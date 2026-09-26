@@ -131,7 +131,7 @@ export function generateSSMIReport({
     certifications: [
       'I hereby certify that the above supplies and materials have been issued to legitimate beneficiaries.',
       'Supporting documents including official receipts and distribution lists are on file.',
-      `Generated via KomuniCore Digital Ledger — Geotag verified at ${geotag?.timestamp || now.toISOString()}`,
+      `Generated via KomuniCare Digital Ledger — Geotag verified at ${geotag?.timestamp || now.toISOString()}`,
     ],
   };
 }

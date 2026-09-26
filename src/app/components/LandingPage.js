@@ -1,12 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import GlassSurface from './GlassSurface';
 import {
   Shield, Zap, CheckCircle2, AlertTriangle, FileText, MapPin, 
   Lock, Users, Heart, ArrowRight, Activity, Database, Smartphone, 
   Layers, RefreshCw, BarChart3, Scan, ExternalLink, ChevronRight,
   Sparkles, Check, Clock, Radio, Award, Sun, Eye, Leaf, Globe,
-  Terminal, ShieldCheck, Cpu, ArrowUpRight, CheckCircle, Play, Menu, X
+  Terminal, ShieldCheck, Cpu, ArrowUpRight, CheckCircle, Play, Menu, X, LifeBuoy, HandHeart, UserCheck
 } from 'lucide-react';
 
 const CONTENT = {
@@ -74,7 +75,7 @@ const CONTENT = {
         }
       ],
       resilienceTitle: 'Hindi kailanman hahawakan ang datos nang walang offline backup',
-      resilienceDesc: 'Kahit mawalan ng signal ang buong isla, ang KomuniCore ay tumatakbo sa lokal na device storage (IndexedDB/SQLite). Awtomatikong nag-si-sync ang records sa pamamagitan ng mesh network pagbalik ng signal.'
+      resilienceDesc: 'Kahit mawalan ng signal ang buong isla, ang KomuniCare ay tumatakbo sa lokal na device storage (IndexedDB/SQLite). Awtomatikong nag-si-sync ang records sa pamamagitan ng mesh network pagbalik ng signal.'
     },
     causes: {
       title: 'Aktibong operasyon sa bawat Purok.',
@@ -139,7 +140,7 @@ const CONTENT = {
     roles: {
       badge: 'ROLE-BASED GOVERNANCE',
       title: 'Isang sistema para sa bawat sektor.',
-      subtitle: 'Subukan ang alinman sa 4 na live role views sa KomuniCore simulator:',
+      subtitle: 'Subukan ang alinman sa 4 na live role views sa KomuniCare simulator:',
       adminTitle: 'Barangay Official',
       adminDesc: 'Analytics dashboard, shelter capacity management, inventory triage, at 1-click COA Annex A & B PDF generator.',
       adminBtn: 'Launch Admin Command',
@@ -154,11 +155,11 @@ const CONTENT = {
       donorBtn: 'Launch Donor Hub',
     },
     comparison: {
-      badge: 'TRADITIONAL VS KOMUNICORE',
-      title: 'Bakit Mas Ligtas at Mabilis sa KomuniCore?',
+      badge: 'TRADITIONAL VS KOMUNICARE',
+      title: 'Bakit Mas Ligtas at Mabilis sa KomuniCare?',
       subtitle: 'Pagkakaiba ng lumang sistema sa bagong digital disaster operating system:',
       oldTitle: 'Lumang Manual System',
-      newTitle: 'KomuniCore Disaster OS',
+      newTitle: 'KomuniCare Disaster OS',
       points: [
         {
           old: 'Papel na listahan na madaling mabasa o mawala sa baha',
@@ -179,10 +180,22 @@ const CONTENT = {
       ]
     },
     footer: {
-      title: 'KomuniCore Operating System',
+      title: 'KomuniCare Operating System',
       subtitle: 'Offline-First Barangay Disaster Relief & Civic Governance',
       btn: 'Pumasok sa Live System →',
-      tagline: 'KomuniCore • Binuo para sa Sambayanang Pilipino at Lokal na Pamahalaan.'
+      tagline: 'KomuniCare • Binuo para sa Sambayanang Pilipino at Lokal na Pamahalaan.'
+    },
+    modal: {
+      title: 'Kumusta, paano namin kayo matutulungan?',
+      subtitle: 'Piliin kung anong uri ng access ang kailangan mo ngayon.',
+      opt1Title: 'Ikaw ba ay tutulong?',
+      opt1Desc: 'Para sa mga LGU, Barangay Officials, at SK Volunteers na nagbabantay sa evacuation at pamamahagi.',
+      opt2Title: 'Kailangan mo ba ng tulong?',
+      opt2Desc: 'Para sa mga apektado, evacuees, at pamilyang naghahanap ng relief packs o donasyon.',
+      opt3Title: 'Gusto mo bang mag-donate?',
+      opt3Desc: 'Para sa mga mamamayan o NGOs na gustong magpadala ng tulong sa mga nangangailangan.',
+      roleAdmin: 'Barangay Official',
+      roleWorker: 'SK Volunteer',
     }
   },
   en: {
@@ -249,7 +262,7 @@ const CONTENT = {
         }
       ],
       resilienceTitle: 'Data is never lost during blackouts or typhoons',
-      resilienceDesc: 'Even if cellular towers fail across the island, KomuniCore runs completely on local device storage (IndexedDB/SQLite). Records automatically mesh-sync once signal returns.'
+      resilienceDesc: 'Even if cellular towers fail across the island, KomuniCare runs completely on local device storage (IndexedDB/SQLite). Records automatically mesh-sync once signal returns.'
     },
     causes: {
       title: 'Active Operations in Every Purok.',
@@ -314,7 +327,7 @@ const CONTENT = {
     roles: {
       badge: 'ROLE-BASED GOVERNANCE',
       title: 'One system tailored for every stakeholder.',
-      subtitle: 'Test any of the 4 live role views in the KomuniCore interactive simulator:',
+      subtitle: 'Test any of the 4 live role views in the KomuniCare interactive simulator:',
       adminTitle: 'Barangay Official',
       adminDesc: 'Analytics dashboard, shelter capacity management, inventory triage, and 1-click COA Annex A & B PDF generator.',
       adminBtn: 'Launch Admin Command',
@@ -329,11 +342,11 @@ const CONTENT = {
       donorBtn: 'Launch Donor Hub',
     },
     comparison: {
-      badge: 'TRADITIONAL VS KOMUNICORE',
-      title: 'Why KomuniCore is Safer & Faster',
+      badge: 'TRADITIONAL VS KOMUNICARE',
+      title: 'Why KomuniCare is Safer & Faster',
       subtitle: 'Comparison between legacy paper relief distribution vs modern civic disaster OS:',
       oldTitle: 'Legacy Paper System',
-      newTitle: 'KomuniCore Disaster OS',
+      newTitle: 'KomuniCare Disaster OS',
       points: [
         {
           old: 'Paper lists prone to water damage or loss in floods',
@@ -354,10 +367,22 @@ const CONTENT = {
       ]
     },
     footer: {
-      title: 'KomuniCore Operating System',
+      title: 'KomuniCare Operating System',
       subtitle: 'Offline-First Barangay Disaster Relief & Civic Governance',
       btn: 'Enter Live System →',
-      tagline: 'KomuniCore • Engineered for Philippine Local Government Units and Communities.'
+      tagline: 'KomuniCare • Engineered for Philippine Local Government Units and Communities.'
+    },
+    modal: {
+      title: 'Hello, how can we help you?',
+      subtitle: 'Choose the type of access you need right now.',
+      opt1Title: 'Are you a helper?',
+      opt1Desc: 'For LGUs, Barangay Officials, and SK Volunteers managing evacuation and distribution.',
+      opt2Title: 'Do you need help?',
+      opt2Desc: 'For affected individuals, evacuees, and families looking for relief packs or donations.',
+      opt3Title: 'Do you want to help?',
+      opt3Desc: 'For everyday citizens or NGOs who want to send aid to those in need.',
+      roleAdmin: 'Barangay Official',
+      roleWorker: 'SK Volunteer',
     }
   }
 };
@@ -368,8 +393,30 @@ export default function LandingPage({ onLaunchApp }) {
   const [pinStatus, setPinStatus] = useState('idle'); // 'idle' | 'verifying' | 'verified' | 'failed'
   const [simulatedResident, setSimulatedResident] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showRoleModal, setShowRoleModal] = useState(false);
 
   const t = CONTENT[lang];
+
+  // Keyboard accessibility for Modal
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && showRoleModal) {
+        setShowRoleModal(false);
+      }
+    };
+    
+    if (showRoleModal) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'unset';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [showRoleModal]);
 
   // Interactive PIN Handshake Demo logic
   const handlePinDigit = (digit) => {
@@ -415,6 +462,74 @@ export default function LandingPage({ onLaunchApp }) {
 
   return (
     <div className="min-h-screen bg-[#F4F9F6] text-[#063B2C] selection:bg-emerald-500 selection:text-white font-sans antialiased overflow-x-hidden">
+      {/* Role Selection Modal (Glassmorphism Overlay) */}
+      {showRoleModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-[#063B2C]/40 backdrop-blur-sm" onClick={() => setShowRoleModal(false)} />
+          <div className="relative bg-white rounded-3xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto animate-fadeIn border border-emerald-100 p-6 sm:p-10">
+            <button onClick={() => setShowRoleModal(false)} className="absolute top-4 right-4 p-2 rounded-full hover:bg-slate-100 text-slate-500 transition-colors">
+              <X className="w-6 h-6" />
+            </button>
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-emerald-100 text-emerald-600 mb-4 shadow-inner">
+                <Shield className="w-8 h-8" />
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-black text-[#063B2C] tracking-tight">{t.modal.title}</h2>
+              <p className="text-[#325346] mt-2 text-lg font-medium">{t.modal.subtitle}</p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Option 1: Helper */}
+              <div className="group relative bg-[#F4F9F6] hover:bg-emerald-600 border-2 border-emerald-100 hover:border-emerald-600 rounded-3xl p-6 sm:p-8 cursor-pointer transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl hover:shadow-emerald-600/20" onClick={() => onLaunchApp('admin')}>
+                <div className="w-14 h-14 rounded-full bg-emerald-100 group-hover:bg-white/20 flex items-center justify-center mb-6 transition-colors">
+                  <UserCheck className="w-7 h-7 text-emerald-600 group-hover:text-white" />
+                </div>
+                <h3 className="text-xl font-black text-[#063B2C] group-hover:text-white mb-3">{t.modal.opt1Title}</h3>
+                <p className="text-[#325346] group-hover:text-emerald-50 text-sm font-medium mb-6 leading-relaxed">
+                  {t.modal.opt1Desc}
+                </p>
+                <div className="mt-auto space-y-2">
+                  <button onClick={(e) => { e.stopPropagation(); onLaunchApp('admin'); }} className="w-full py-2.5 rounded-xl bg-white border border-[#D5E5DE] text-emerald-700 font-bold text-xs flex items-center justify-center gap-2 hover:bg-emerald-50 transition-colors">
+                    {t.modal.roleAdmin} <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                  <button onClick={(e) => { e.stopPropagation(); onLaunchApp('worker'); }} className="w-full py-2.5 rounded-xl bg-white border border-[#D5E5DE] text-emerald-700 font-bold text-xs flex items-center justify-center gap-2 hover:bg-emerald-50 transition-colors">
+                    {t.modal.roleWorker} <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Option 2: Need Help */}
+              <div className="group relative bg-[#F4F9F6] hover:bg-amber-500 border-2 border-amber-100 hover:border-amber-500 rounded-3xl p-6 sm:p-8 cursor-pointer transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl hover:shadow-amber-500/20" onClick={() => onLaunchApp('resident')}>
+                <div className="w-14 h-14 rounded-full bg-amber-100 group-hover:bg-white/20 flex items-center justify-center mb-6 transition-colors">
+                  <LifeBuoy className="w-7 h-7 text-amber-600 group-hover:text-white" />
+                </div>
+                <h3 className="text-xl font-black text-[#063B2C] group-hover:text-white mb-3">{t.modal.opt2Title}</h3>
+                <p className="text-[#325346] group-hover:text-amber-50 text-sm font-medium leading-relaxed">
+                  {t.modal.opt2Desc}
+                </p>
+                <div className="mt-8 flex items-center font-bold text-amber-600 group-hover:text-white text-sm gap-2">
+                  Launch Resident Portal <ArrowRight className="w-4 h-4" />
+                </div>
+              </div>
+
+              {/* Option 3: Want to Help */}
+              <div className="group relative bg-[#F4F9F6] hover:bg-teal-500 border-2 border-teal-100 hover:border-teal-500 rounded-3xl p-6 sm:p-8 cursor-pointer transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl hover:shadow-teal-500/20" onClick={() => onLaunchApp('donor')}>
+                <div className="w-14 h-14 rounded-full bg-teal-100 group-hover:bg-white/20 flex items-center justify-center mb-6 transition-colors">
+                  <HandHeart className="w-7 h-7 text-teal-600 group-hover:text-white" />
+                </div>
+                <h3 className="text-xl font-black text-[#063B2C] group-hover:text-white mb-3">{t.modal.opt3Title}</h3>
+                <p className="text-[#325346] group-hover:text-teal-50 text-sm font-medium leading-relaxed">
+                  {t.modal.opt3Desc}
+                </p>
+                <div className="mt-8 flex items-center font-bold text-teal-600 group-hover:text-white text-sm gap-2">
+                  Launch Donor Hub <ArrowRight className="w-4 h-4" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Tactical Top Telemetry Status Bar */}
       <div className="bg-[#E8F4EE] border-b border-[#D2E7DC] px-4 py-2 text-[11px] font-mono text-[#063B2C] flex items-center justify-between overflow-x-auto no-scrollbar whitespace-nowrap">
         <div className="flex items-center gap-4">
@@ -439,49 +554,62 @@ export default function LandingPage({ onLaunchApp }) {
       <div className="banig-ribbon" />
 
       {/* Navigation Header */}
-      <header className="sticky top-0 z-50 bg-[#F4F9F6]/95 backdrop-blur-md border-b border-[#E2ECE7] transition-all">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <header className="absolute top-20 z-50 transition-all w-[95%] left-1/2 -translate-x-1/2 max-w-[1440px]">
+        <GlassSurface
+          width="100%"
+          height={80}
+          borderRadius={40}
+          backgroundOpacity={0.2}
+          opacity={0.8}
+          brightness={120}
+          blur={16}
+          displace={5}
+          distortionScale={-20}
+          mixBlendMode="normal"
+          className="shadow-2xl shadow-black/20 border border-white/20"
+        >
+          <div className="w-full h-full px-4 sm:px-6 flex items-center justify-between gap-2 lg:gap-4">
           {/* Logo */}
-          <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center shadow-lg shadow-emerald-600/20 border border-emerald-400/40 transform hover:rotate-3 transition-transform">
+          <div className="flex items-center gap-3 shrink-0">
+            <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center shadow-lg shadow-emerald-600/20 border border-emerald-400/40 transform hover:rotate-3 transition-transform shrink-0">
               <Shield className="w-6 h-6 text-white" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-black text-xl tracking-tight text-[#063B2C]">
-                  Komuni<span className="text-emerald-600">Core</span>
+                <span className="font-black text-xl tracking-tight text-white shrink-0 whitespace-nowrap">
+                  Komuni<span className="text-emerald-400">Core</span>
                 </span>
-                <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-100/80 text-emerald-800 border border-emerald-300 uppercase tracking-wider">
+                <span className="hidden md:inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-white/10 backdrop-blur-sm text-emerald-100 border border-white/20 uppercase tracking-wider whitespace-nowrap shrink-0">
                   PSC Architecture
                 </span>
               </div>
-              <p className="text-[11px] text-[#4E7164] font-medium hidden sm:block">
+              <p className="text-[11px] text-emerald-50 font-medium hidden sm:block whitespace-nowrap">
                 Barangay Disaster Relief & Audit OS
               </p>
             </div>
           </div>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-6 text-xs font-bold text-[#3B5B4F] tracking-wide">
-            <a href="#hero" className="hover:text-emerald-600 transition-colors">{t.nav.crisis}</a>
-            <a href="#handshake-demo" className="hover:text-emerald-600 transition-colors">PIN Handshake Demo</a>
-            <a href="#protection" className="hover:text-emerald-600 transition-colors">{t.nav.trust}</a>
-            <a href="#how-it-works" className="hover:text-emerald-600 transition-colors">{t.nav.howItWorks}</a>
-            <a href="#comparison" className="hover:text-emerald-600 transition-colors">Vs Legacy</a>
-            <a href="#causes" className="hover:text-emerald-600 transition-colors">{t.nav.causes}</a>
-            <a href="#roles" className="hover:text-emerald-600 transition-colors">{t.nav.roles}</a>
-          </nav>
+          <div className="hidden xl:flex items-center">
+            <nav className="flex items-center gap-2 2xl:gap-4 text-[10px] 2xl:text-[11px] font-bold text-white tracking-wide whitespace-nowrap px-2">
+              <a href="#hero" className="hover:text-emerald-300 transition-colors">{t.nav.crisis}</a>
+              <a href="#handshake-demo" className="hover:text-emerald-300 transition-colors">PIN Handshake Demo</a>
+              <a href="#protection" className="hover:text-emerald-300 transition-colors">{t.nav.trust}</a>
+              <a href="#how-it-works" className="hover:text-emerald-300 transition-colors">{t.nav.howItWorks}</a>
+              <a href="#causes" className="hover:text-emerald-300 transition-colors">{t.nav.causes}</a>
+            </nav>
+          </div>
 
           {/* Right Action & Language Switcher */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             {/* Language Switcher Pill Toggle */}
-            <div className="flex items-center p-1 rounded-full bg-emerald-100/70 border border-emerald-300 shadow-inner">
+            <div className="flex items-center p-1 rounded-full bg-black/20 backdrop-blur-md border border-white/20 shadow-inner">
               <button
                 onClick={() => setLang('tl')}
                 className={`px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-black transition-all cursor-pointer flex items-center gap-1 ${
                   lang === 'tl'
-                    ? 'bg-emerald-700 text-white shadow-sm scale-105'
-                    : 'text-emerald-900 hover:text-emerald-950'
+                    ? 'bg-emerald-500 backdrop-blur-md text-white shadow-sm scale-105 border border-emerald-400/40'
+                    : 'text-white hover:bg-white/20'
                 }`}
                 title="Ipakita sa Tagalog"
               >
@@ -491,8 +619,8 @@ export default function LandingPage({ onLaunchApp }) {
                 onClick={() => setLang('en')}
                 className={`px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-black transition-all cursor-pointer flex items-center gap-1 ${
                   lang === 'en'
-                    ? 'bg-emerald-700 text-white shadow-sm scale-105'
-                    : 'text-emerald-900 hover:text-emerald-950'
+                    ? 'bg-emerald-500 backdrop-blur-md text-white shadow-sm scale-105 border border-emerald-400/40'
+                    : 'text-white hover:bg-white/20'
                 }`}
                 title="Show in English"
               >
@@ -502,8 +630,8 @@ export default function LandingPage({ onLaunchApp }) {
 
             {/* Launch App Button (Hidden on smallest screens, available in mobile menu) */}
             <button
-              onClick={() => onLaunchApp('admin')}
-              className="hidden sm:flex px-4 sm:px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs sm:text-sm items-center gap-2 shadow-lg shadow-emerald-700/25 transition-all transform hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
+              onClick={() => setShowRoleModal(true)}
+              className="hidden sm:flex px-4 sm:px-5 py-2.5 rounded-full bg-emerald-600/80 backdrop-blur-md border border-emerald-400/50 hover:bg-emerald-500/90 text-white font-black text-xs sm:text-sm items-center gap-2 shadow-[0_8px_32px_rgba(4,120,87,0.25)] transition-all transform hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
             >
               <Zap className="w-4 h-4 fill-current text-white" />
               <span>{t.nav.launch}</span>
@@ -512,17 +640,17 @@ export default function LandingPage({ onLaunchApp }) {
             {/* Mobile Hamburger Toggle Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-xl bg-emerald-100/80 text-[#063B2C] border border-emerald-300 hover:bg-emerald-200 transition-colors"
+              className="xl:hidden p-2 rounded-xl bg-black/20 backdrop-blur-md text-white border border-white/20 hover:bg-white/20 shadow-sm transition-colors"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
-
-        {/* Collapsible Mobile Navigation Drawer */}
+      </GlassSurface>
+      {/* Collapsible Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-[#F4F9F6] border-b border-[#E2ECE7] px-4 pt-3 pb-6 space-y-3 animate-fadeIn shadow-xl">
+          <div className="xl:hidden bg-[#F4F9F6] border-b border-[#E2ECE7] px-4 pt-3 pb-6 space-y-3 animate-fadeIn shadow-xl">
             <nav className="flex flex-col gap-2.5 text-sm font-bold text-[#3B5B4F]">
               <a
                 href="#hero"
@@ -576,7 +704,7 @@ export default function LandingPage({ onLaunchApp }) {
             </nav>
 
             <button
-              onClick={() => { setMobileMenuOpen(false); onLaunchApp('admin'); }}
+              onClick={() => { setMobileMenuOpen(false); setShowRoleModal(true); }}
               className="w-full mt-2 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-700/20 transition-all cursor-pointer"
             >
               <Zap className="w-4 h-4 fill-current text-white" />
@@ -587,7 +715,24 @@ export default function LandingPage({ onLaunchApp }) {
       </header>
 
       {/* Hero Section: Bright Fresh Mint Backdrop & Rotating Radar Sweep Animation */}
-      <section id="hero" className="relative pt-12 pb-20 md:pt-16 md:pb-28 overflow-hidden bg-[#EFF6F2] bg-grid-pattern border-b border-[#E2ECE7]">
+      <section id="hero" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-[#EFF6F2] border-b border-[#E2ECE7]">
+        {/* VIDEO BACKGROUND */}
+        <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/donation.mp4" type="video/mp4" />
+          </video>
+          {/* Light overlay to ensure the dark text remains readable while keeping video visible */}
+          <div className="absolute inset-0 bg-[#EFF6F2]/40 backdrop-blur-[1px]"></div>
+          {/* Subtle Grid Pattern Overlay */}
+          <div className="absolute inset-0 bg-grid-pattern opacity-30"></div>
+        </div>
+
         {/* ANIMATED BACKGROUND EFFECT: Rotating Radar Disk & Glowing Pulsing Ambient Mesh */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] pointer-events-none opacity-30">
           <div className="w-full h-full rounded-full border-2 border-dashed border-emerald-400/40 animate-radar-spin relative flex items-center justify-center">
@@ -608,9 +753,9 @@ export default function LandingPage({ onLaunchApp }) {
           </div>
 
           {/* Main Title */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#063B2C] tracking-tight leading-[1.12] max-w-4xl mx-auto mb-6">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.12] max-w-4xl mx-auto mb-6">
             {t.hero.title1}{' '}
-            <span className="relative inline-block text-emerald-600">
+            <span className="relative inline-block text-emerald-400">
               {t.hero.title2}
               <svg className="absolute left-0 -bottom-2 w-full h-3 text-emerald-400" viewBox="0 0 100 20" preserveAspectRatio="none">
                 <path d="M0,15 Q50,0 100,15" stroke="currentColor" strokeWidth="4" fill="none" strokeLinecap="round" />
@@ -619,14 +764,14 @@ export default function LandingPage({ onLaunchApp }) {
           </h1>
 
           {/* Subtext */}
-          <p className="text-base sm:text-lg text-[#325346] max-w-2xl mx-auto leading-relaxed mb-8 font-medium">
+          <p className="text-base sm:text-lg text-emerald-50 max-w-2xl mx-auto leading-relaxed mb-8 font-medium">
             {t.hero.subhead}
           </p>
 
           {/* Action CTAs */}
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-14">
             <button
-              onClick={() => onLaunchApp('admin')}
+              onClick={() => setShowRoleModal(true)}
               className="px-8 py-4 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm sm:text-base flex items-center gap-2.5 shadow-xl shadow-emerald-700/30 transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
             >
               <span>{t.hero.ctaPrimary}</span>
@@ -635,9 +780,9 @@ export default function LandingPage({ onLaunchApp }) {
 
             <a
               href="#handshake-demo"
-              className="px-7 py-4 rounded-full bg-white hover:bg-emerald-50/80 text-[#063B2C] border border-[#D5E5DE] font-bold text-sm sm:text-base flex items-center gap-2 shadow-sm transition-all"
+              className="px-7 py-4 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 font-bold text-sm sm:text-base flex items-center gap-2 shadow-sm transition-all"
             >
-              <Zap className="w-5 h-5 text-emerald-600" />
+              <Zap className="w-5 h-5 text-emerald-400" />
               <span>{t.hero.ctaSecondary}</span>
             </a>
           </div>
@@ -647,8 +792,8 @@ export default function LandingPage({ onLaunchApp }) {
             {/* Overlapping Deck Container */}
             <div className="flex items-center justify-center -space-x-6 xs:-space-x-8 sm:-space-x-12 relative z-10 max-w-full">
               {/* Left Card (Senior Aid) - Tilted Left */}
-              <div className="w-[33vw] max-w-[160px] sm:max-w-none sm:w-80 rounded-xl xs:rounded-2xl sm:rounded-3xl bg-white p-1.5 xs:p-2 sm:p-3 shadow-xl border border-[#D5E5DE] transform -rotate-3 sm:-rotate-4 hover:rotate-0 hover:scale-105 hover:z-30 transition-all duration-300 shrink-0 z-10">
-                <div className="relative w-full h-24 xs:h-32 sm:h-52 rounded-lg xs:rounded-xl sm:rounded-2xl overflow-hidden bg-slate-100">
+              <div className="w-[33vw] max-w-[160px] sm:max-w-none sm:w-80 rounded-xl xs:rounded-2xl sm:rounded-3xl bg-black/40 backdrop-blur-md p-1.5 xs:p-2 sm:p-3 shadow-xl border border-white/20 transform -rotate-3 sm:-rotate-4 hover:rotate-0 hover:scale-105 hover:z-30 transition-all duration-300 shrink-0 z-10">
+                <div className="relative w-full h-24 xs:h-32 sm:h-52 rounded-lg xs:rounded-xl sm:rounded-2xl overflow-hidden bg-slate-800">
                   <img
                     src="/volunteer_senior.jpg"
                     alt="SK Volunteer handing relief to senior citizen"
@@ -663,14 +808,14 @@ export default function LandingPage({ onLaunchApp }) {
                   </div>
                 </div>
                 <div className="p-1 xs:p-2 sm:p-3 text-left">
-                  <div className="text-[8px] sm:text-[10px] font-bold text-emerald-700 uppercase tracking-wider truncate">PUROK 4 ILAYA</div>
-                  <h4 className="font-bold text-[10px] sm:text-sm text-[#063B2C] mt-0.5 truncate">Senior & Vulnerable Aid</h4>
+                  <div className="text-[8px] sm:text-[10px] font-bold text-emerald-400 uppercase tracking-wider truncate">PUROK 4 ILAYA</div>
+                  <h4 className="font-bold text-[10px] sm:text-sm text-white mt-0.5 truncate">Senior & Vulnerable Aid</h4>
                 </div>
               </div>
 
               {/* Center Card (Active Bayanihan) - Elevated Lifted */}
-              <div className="w-[38vw] max-w-[190px] sm:max-w-none sm:w-90 rounded-xl xs:rounded-2xl sm:rounded-3xl bg-white p-1.5 xs:p-2 sm:p-3 shadow-2xl border-2 border-emerald-400 transform -translate-y-2 sm:-translate-y-6 hover:-translate-y-8 hover:scale-105 transition-all duration-300 shrink-0 z-20 shadow-emerald-600/15">
-                <div className="relative w-full h-28 xs:h-36 sm:h-56 rounded-lg xs:rounded-xl sm:rounded-2xl overflow-hidden bg-slate-100">
+              <div className="w-[38vw] max-w-[190px] sm:max-w-none sm:w-90 rounded-xl xs:rounded-2xl sm:rounded-3xl bg-black/40 backdrop-blur-md p-1.5 xs:p-2 sm:p-3 shadow-2xl border-2 border-emerald-400/50 transform -translate-y-2 sm:-translate-y-6 hover:-translate-y-8 hover:scale-105 transition-all duration-300 shrink-0 z-20 shadow-emerald-600/15">
+                <div className="relative w-full h-28 xs:h-36 sm:h-56 rounded-lg xs:rounded-xl sm:rounded-2xl overflow-hidden bg-slate-800">
                   <img
                     src="/hero_community.jpg"
                     alt="Philippine Barangay Disaster Relief Distribution"
@@ -685,14 +830,14 @@ export default function LandingPage({ onLaunchApp }) {
                   </div>
                 </div>
                 <div className="p-1 xs:p-2 sm:p-3 text-left">
-                  <div className="text-[8px] sm:text-[10px] font-bold text-emerald-700 uppercase tracking-wider truncate">PUROK 3 MABINI</div>
-                  <h4 className="font-bold text-[10px] sm:text-sm text-[#063B2C] mt-0.5 truncate">Evacuation Gym Relief Handshake</h4>
+                  <div className="text-[8px] sm:text-[10px] font-bold text-emerald-400 uppercase tracking-wider truncate">PUROK 3 MABINI</div>
+                  <h4 className="font-bold text-[10px] sm:text-sm text-white mt-0.5 truncate">Evacuation Gym Relief Handshake</h4>
                 </div>
               </div>
 
               {/* Right Card (COA Ready Supplies) - Tilted Right */}
-              <div className="w-[33vw] max-w-[160px] sm:max-w-none sm:w-80 rounded-xl xs:rounded-2xl sm:rounded-3xl bg-white p-1.5 xs:p-2 sm:p-3 shadow-xl border border-[#D5E5DE] transform rotate-3 sm:rotate-4 hover:rotate-0 hover:scale-105 hover:z-30 transition-all duration-300 shrink-0 z-10">
-                <div className="relative w-full h-24 xs:h-32 sm:h-52 rounded-lg xs:rounded-xl sm:rounded-2xl overflow-hidden bg-slate-100">
+              <div className="w-[33vw] max-w-[160px] sm:max-w-none sm:w-80 rounded-xl xs:rounded-2xl sm:rounded-3xl bg-black/40 backdrop-blur-md p-1.5 xs:p-2 sm:p-3 shadow-xl border border-white/20 transform rotate-3 sm:rotate-4 hover:rotate-0 hover:scale-105 hover:z-30 transition-all duration-300 shrink-0 z-10">
+                <div className="relative w-full h-24 xs:h-32 sm:h-52 rounded-lg xs:rounded-xl sm:rounded-2xl overflow-hidden bg-slate-800">
                   <img
                     src="/relief_packs.jpg"
                     alt="Organized Emergency Disaster Relief Packs"
@@ -707,16 +852,16 @@ export default function LandingPage({ onLaunchApp }) {
                   </div>
                 </div>
                 <div className="p-1 xs:p-2 sm:p-3 text-left">
-                  <div className="text-[8px] sm:text-[10px] font-bold text-emerald-700 uppercase tracking-wider truncate">PUROK 1 RIVERSIDE</div>
-                  <h4 className="font-bold text-[10px] sm:text-sm text-[#063B2C] mt-0.5 truncate">Emergency Relief Packs</h4>
+                  <div className="text-[8px] sm:text-[10px] font-bold text-emerald-400 uppercase tracking-wider truncate">PUROK 1 RIVERSIDE</div>
+                  <h4 className="font-bold text-[10px] sm:text-sm text-white mt-0.5 truncate">Emergency Relief Packs</h4>
                 </div>
               </div>
             </div>
 
             {/* Floating Caption Banner / Trust Pill Neatly Underneath Overlapping Stack */}
             <div className="mt-6 sm:mt-8 relative z-30 flex justify-center px-3">
-              <div className="inline-flex items-center justify-center gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-2xl sm:rounded-full bg-white shadow-xl border border-[#D5E5DE] text-xs sm:text-sm font-bold text-[#1F4135] backdrop-blur-md text-center max-w-full">
-                <Leaf className="w-4 h-4 text-emerald-600 fill-current animate-pulse shrink-0" />
+              <div className="inline-flex items-center justify-center gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-2xl sm:rounded-full bg-black/40 shadow-xl border border-white/20 text-xs sm:text-sm font-bold text-white backdrop-blur-md text-center max-w-full">
+                <Leaf className="w-4 h-4 text-emerald-400 fill-current animate-pulse shrink-0" />
                 <span className="leading-snug">{t.hero.trustPill}</span>
               </div>
             </div>
@@ -725,7 +870,7 @@ export default function LandingPage({ onLaunchApp }) {
       </section>
 
       {/* INTERACTIVE PIN HANDSHAKE WIDGET DEMO SECTION: Scanline & Matrix Animation */}
-      <section id="handshake-demo" className="py-20 bg-[#EAF4EE] bg-dots-pattern border-t border-b border-[#E2ECE7] relative overflow-hidden">
+      <section id="handshake-demo" className="py-20 relative overflow-hidden">
         {/* ANIMATED BACKGROUND EFFECT: Vertical Tactical Scanline */}
         <div className="absolute inset-0 pointer-events-none opacity-30">
           <div className="w-full h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent animate-scanline" />
@@ -743,7 +888,7 @@ export default function LandingPage({ onLaunchApp }) {
                 Subukan ang Offline 4-Digit Handshake Simulator.
               </h2>
               <p className="text-[#325346] text-sm sm:text-base leading-relaxed font-medium">
-                Kahit walang Wi-Fi o signal sa evacuation gym, nagtitiyak ang KomuniCore ng walang duplication gamit ang zero-connectivity 4-digit PIN ng resident.
+                Kahit walang Wi-Fi o signal sa evacuation gym, nagtitiyak ang KomuniCare ng walang duplication gamit ang zero-connectivity 4-digit PIN ng resident.
               </p>
 
               <div className="space-y-3 pt-2">
@@ -774,9 +919,9 @@ export default function LandingPage({ onLaunchApp }) {
 
             {/* Right Interactive Keypad Widget */}
             <div className="lg:col-span-6">
-              <div className="bg-white border-2 border-emerald-300/90 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+              <div className="bg-white/40 backdrop-blur-xl border border-white/60 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
                 {/* Header of Simulator */}
-                <div className="flex items-center justify-between pb-6 border-b border-[#E2ECE7] mb-6">
+                <div className="flex items-center justify-between pb-6 border-b border-emerald-900/10 mb-6">
                   <div className="flex items-center gap-2">
                     <div className="w-3 h-3 rounded-full bg-red-500" />
                     <div className="w-3 h-3 rounded-full bg-amber-500" />
@@ -789,7 +934,7 @@ export default function LandingPage({ onLaunchApp }) {
                 </div>
 
                 {/* Display Screen */}
-                <div className="bg-[#F0F7F3] rounded-2xl p-5 border border-[#C5E0D2] mb-6 text-center relative min-h-[110px] flex flex-col items-center justify-center shadow-inner">
+                <div className="bg-white/50 backdrop-blur-md rounded-2xl p-5 border border-white mb-6 text-center relative min-h-[110px] flex flex-col items-center justify-center shadow-[inset_0_2px_10px_rgba(0,0,0,0.05)]">
                   {pinStatus === 'idle' && (
                     <>
                       <p className="text-xs font-mono text-[#38584B] font-bold mb-2">ENTER EVACUEE 4-DIGIT PIN</p>
@@ -841,7 +986,7 @@ export default function LandingPage({ onLaunchApp }) {
                     <button
                       key={digit}
                       onClick={() => handlePinDigit(digit)}
-                      className="py-3.5 rounded-xl bg-[#F4F9F6] hover:bg-emerald-100 text-[#063B2C] font-mono font-bold text-lg border border-[#D5E5DE] hover:border-emerald-500 shadow-xs transition-all active:scale-95 cursor-pointer"
+                      className="py-3.5 rounded-xl bg-white/60 hover:bg-white backdrop-blur-sm text-[#063B2C] font-mono font-bold text-lg border border-white shadow-sm hover:shadow-md transition-all active:scale-95 cursor-pointer"
                     >
                       {digit}
                     </button>
@@ -967,7 +1112,7 @@ export default function LandingPage({ onLaunchApp }) {
         </div>
       </section>
 
-      {/* SECTION: TRADITIONAL VS KOMUNICORE COMPARISON MATRIX: Split Glow Animation */}
+      {/* SECTION: TRADITIONAL VS KOMUNICARE COMPARISON MATRIX: Split Glow Animation */}
       <section id="comparison" className="py-20 bg-[#F7FAF8] border-t border-b border-[#E2ECE7] relative overflow-hidden">
         {/* ANIMATED BACKGROUND EFFECT: Split Ambient Red & Emerald Glow Auras */}
         <div className="absolute left-10 top-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-rose-200/40 blur-3xl pointer-events-none animate-pulse-soft" />
@@ -1009,7 +1154,7 @@ export default function LandingPage({ onLaunchApp }) {
               </div>
             </div>
 
-            {/* Column 2: KomuniCore Disaster OS */}
+            {/* Column 2: KomuniCare Disaster OS */}
             <div className="p-8 rounded-3xl bg-emerald-50/90 border-2 border-emerald-500 space-y-6 shadow-xl relative overflow-hidden">
               <div className="absolute top-0 right-0 px-4 py-1 bg-emerald-600 text-white font-black text-[10px] uppercase tracking-wider rounded-bl-xl shadow-sm">
                 RECOMMENDED LGU OS

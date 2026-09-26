@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import LandingPage from './components/LandingPage';
-import KomuniCoreApp from './components/KomuniCoreApp';
+import KomuniCareApp from './components/KomuniCareApp';
 
 export default function Page() {
   const [viewMode, setViewMode] = useState('landing'); // 'landing' | 'app'
@@ -21,7 +21,7 @@ export default function Page() {
 
   if (viewMode === 'app') {
     return (
-      <KomuniCoreApp 
+      <KomuniCareApp 
         initialRole={selectedRole} 
         onBackToHome={handleBackToLanding} 
       />

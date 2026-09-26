@@ -1,5 +1,5 @@
 /**
- * Philippine-contextualised seed data for KomuniCore MVP.
+ * Philippine-contextualised seed data for KomuniCare MVP.
  * All names, supplies, and locations reflect real Filipino disaster relief scenarios.
  */
 

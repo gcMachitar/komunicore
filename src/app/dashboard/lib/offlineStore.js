@@ -4,13 +4,13 @@
  */
 
 const STORE_KEYS = {
-  RESIDENTS: 'komunicore_residents',
-  DISTRIBUTIONS: 'komunicore_distributions',
-  PLEDGES: 'komunicore_pledges',
-  SHELTERS: 'komunicore_shelters',
-  INVENTORY: 'komunicore_inventory',
-  SYNC_QUEUE: 'komunicore_sync_queue',
-  RECEIPTS: 'komunicore_receipts',
+  RESIDENTS: 'komunicare_residents',
+  DISTRIBUTIONS: 'komunicare_distributions',
+  PLEDGES: 'komunicare_pledges',
+  SHELTERS: 'komunicare_shelters',
+  INVENTORY: 'komunicare_inventory',
+  SYNC_QUEUE: 'komunicare_sync_queue',
+  RECEIPTS: 'komunicare_receipts',
 };
 
 /**

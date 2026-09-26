@@ -2,7 +2,7 @@
 
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
-import KomuniCoreApp from '../components/KomuniCoreApp';
+import KomuniCareApp from '../components/KomuniCareApp';
 
 function DashboardContent() {
   const router = useRouter();
@@ -10,7 +10,7 @@ function DashboardContent() {
   const role = searchParams.get('role') || 'admin';
 
   return (
-    <KomuniCoreApp 
+    <KomuniCareApp 
       initialRole={role} 
       onBackToHome={() => router.push('/')} 
     />
